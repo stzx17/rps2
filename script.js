@@ -43,28 +43,32 @@ const btnPaper = document.getElementById('paper');
 const btnScissor = document.getElementById('scissor');
 let selection = '';
 
+function pressButton() {
+    let playerPlayText = document.getElementById('playerSelection');
+    playerPlayText.textContent += selection;
+    computerPlay();
+    playRound();
+}
+
 btnRock.onclick = () => {
     selection = 'R';
-    let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent += 'ROCK';
-    computerPlay();
+    pressButton();
 }
 
 btnPaper.onclick = () => {
     selection = 'P';
-    let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent += 'PAPER';
+    pressButton();
 }
 
 btnScissor.onclick = () => {
     selection = 'S';
-    let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent += 'SCISSOR';
+    pressButton();
 }
 
 function playRound() {
     let enemyChoice = computerPlay();
     let result = '';
+    let resultText = '';
     //let playerChoice = playerSelection();
     if (enemyChoice == selection) {
         result = 'T';
@@ -81,7 +85,17 @@ function playRound() {
     } else if (enemyChoice == 'P' && selection == 'R') {
         result = 'L';
     }
-    return result;
+
+    if (result == 'T') {
+        resultText = 'TIE'
+    } else if (result == 'L') {
+        resultText = 'LOSE';
+    } else if (result == 'W') {
+        resultText = 'WIN';
+    }
+    
+    let resultText = document.getElementById('result');
+    resultText.textContent += resultText;
 }
 
 /*function game() {
