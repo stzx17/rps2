@@ -4,16 +4,20 @@
 function computerPlay() {
    let cpuChoice = Math.floor(Math.random()*3);
    let cpuPlay = '';
+   let textDisplay = ''
 
    if (cpuChoice < 1) {
         cpuPlay = 'R';
+        textDisplay = 'ROCK';
    } else if (cpuChoice >= 1 && cpuChoice < 2) {
         cpuPlay = 'P';
+        textDisplay = 'PAPER';
    } else if (cpuChoice >= 2) {
         cpuPlay = 'S';
+        textDisplay = 'SCISSOR'
    }
-   let cpuPlayText = document.querySelector('#cpuSelection');
-   cpuPlayText.addText(cpuPlay);
+   let cpuPlayText = document.getElementById('cpuSelection');
+   cpuPlayText.textContent += textDisplay;
 
    return cpuPlay;
 }
@@ -42,19 +46,19 @@ let selection = '';
 btnRock.onclick = () => {
     selection = 'R';
     let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent(selection);
+    playerPlayText.textContent += 'ROCK';
 }
 
 btnPaper.onclick = () => {
     selection = 'P';
     let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent(selection);
+    playerPlayText.textContent += 'PAPER';
 }
 
 btnScissor.onclick = () => {
     selection = 'S';
     let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent(selection);
+    playerPlayText.textContent += 'SCISSOR';
 }
 
 function playRound() {
