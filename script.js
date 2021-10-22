@@ -38,9 +38,9 @@ function computerPlay() {
     return selection;
 } */
 
-const btnRock = document.getElementById('rock');
-const btnPaper = document.getElementById('paper');
-const btnScissor = document.getElementById('scissor');
+let btnRock = document.getElementById('rock');
+let btnPaper = document.getElementById('paper');
+let btnScissor = document.getElementById('scissor');
 let selection = '';
 
 function pressButton() {
