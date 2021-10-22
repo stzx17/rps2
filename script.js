@@ -12,12 +12,14 @@ function computerPlay() {
    } else if (cpuChoice >= 2) {
         cpuPlay = 'S';
    }
+   let cpuPlayText = document.querySelector('#cpuSelection');
+   cpuPlayText.addText(cpuPlay);
 
    return cpuPlay;
 }
 
 //qui viene chiesto al giocatore di inserire la stringa della sua scelta
-function playerSelection() {
+/*function playerSelection() {
     let choice = prompt('What will you play? \nROCK, PAPER or SCISSOR?');
     let selection = '';
     if (choice.toUpperCase() == 'ROCK') {
@@ -30,31 +32,44 @@ function playerSelection() {
         alert('error!');
     }
     return selection;
-}
+} */
+
+const btnRock = document.querySelector('#rock');
+const btnPaper = document.querySelector('#paper');
+const btnScissor = document.querySelector('#scissor');
+let selection = '';
+
+btnRock.onclick = () => selection = 'R';
+btnPaper.onclick = () => selection = 'P';
+btnScissor.onclick = () => selection = 'S';
+
+let playerPlayText = document.querySelector('#playerSelection');
+playerPlayText.addText(selection);
+
 
 function playRound() {
     let enemyChoice = computerPlay();
     let result = '';
-    let playerChoice = playerSelection();
-    if (enemyChoice == playerChoice) {
+    //let playerChoice = playerSelection();
+    if (enemyChoice == selection) {
         result = 'T';
-    } else if (enemyChoice == 'S' && playerChoice == 'R') {
+    } else if (enemyChoice == 'S' && selection == 'R') {
         result = 'W';
-    } else if (enemyChoice == 'S' && playerChoice == 'P') {
+    } else if (enemyChoice == 'S' && selection == 'P') {
         result = 'L';
-    } else if (enemyChoice == 'R' && playerChoice == 'S') {
+    } else if (enemyChoice == 'R' && selection == 'S') {
         result = 'L';
-    } else if (enemyChoice == 'R' && playerChoice == 'P') {
+    } else if (enemyChoice == 'R' && selection == 'P') {
         result = 'W';
-    } else if (enemyChoice == 'P' && playerChoice == 'S') {
+    } else if (enemyChoice == 'P' && selection == 'S') {
         result = 'W';
-    } else if (enemyChoice == 'P' && playerChoice == 'R') {
+    } else if (enemyChoice == 'P' && selection == 'R') {
         result = 'L';
     }
     return result;
 }
 
-function game() {
+/*function game() {
     let wins = 0;
     let loses = 0;
     for (i = 0; i<5; i++) {
@@ -71,4 +86,6 @@ function game() {
     }
 }
 
-game();
+
+game(); */
+
