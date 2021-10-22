@@ -53,22 +53,22 @@ function pressButton() {
 btnRock.onclick = () => {
     selection = 'R';
     let selectionText = 'ROCK';
-    pressButton();
     return selectionText;
+    pressButton();
 }
 
 btnPaper.onclick = () => {
     selection = 'P';
     let selectionText = 'PAPER';
-    pressButton();
     return selectionText;
+    pressButton();
 }
 
 btnScissor.onclick = () => {
     selection = 'S';
     let selectionText = 'SCISSOR'
-    pressButton();
     return selectionText;
+    pressButton();
 }
 
 function playRound() {
