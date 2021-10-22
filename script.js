@@ -39,13 +39,23 @@ const btnPaper = document.querySelector('#paper');
 const btnScissor = document.querySelector('#scissor');
 let selection = '';
 
-btnRock.onclick = () => selection = 'R';
-btnPaper.onclick = () => selection = 'P';
-btnScissor.onclick = () => selection = 'S';
+btnRock.onclick = () => {
+    selection = 'R';
+    let playerPlayText = document.querySelector('#playerSelection');
+    playerPlayText.addText(selection);
+}
 
-let playerPlayText = document.querySelector('#playerSelection');
-playerPlayText.addText(selection);
+btnPaper.onclick = () => {
+    selection = 'P';
+    let playerPlayText = document.querySelector('#playerSelection');
+    playerPlayText.addText(selection);
+}
 
+btnScissor.onclick = () => {
+    selection = 'S';
+    let playerPlayText = document.querySelector('#playerSelection');
+    playerPlayText.addText(selection);
+}
 
 function playRound() {
     let enemyChoice = computerPlay();
