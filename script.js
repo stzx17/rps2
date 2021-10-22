@@ -34,26 +34,26 @@ function computerPlay() {
     return selection;
 } */
 
-const btnRock = document.querySelector('#rock');
-const btnPaper = document.querySelector('#paper');
-const btnScissor = document.querySelector('#scissor');
+const btnRock = document.getElementById('rock');
+const btnPaper = document.getElementById('paper');
+const btnScissor = document.getElementById('scissor');
 let selection = '';
 
 btnRock.onclick = () => {
     selection = 'R';
-    let playerPlayText = document.querySelector('#playerSelection');
+    let playerPlayText = document.getElementById('playerSelection');
     playerPlayText.textContent(selection);
 }
 
 btnPaper.onclick = () => {
     selection = 'P';
-    let playerPlayText = document.querySelector('#playerSelection');
+    let playerPlayText = document.getElementById('playerSelection');
     playerPlayText.textContent(selection);
 }
 
 btnScissor.onclick = () => {
     selection = 'S';
-    let playerPlayText = document.querySelector('#playerSelection');
+    let playerPlayText = document.getElementById('playerSelection');
     playerPlayText.textContent(selection);
 }
 
