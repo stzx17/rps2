@@ -47,6 +47,7 @@ btnRock.onclick = () => {
     selection = 'R';
     let playerPlayText = document.getElementById('playerSelection');
     playerPlayText.textContent += 'ROCK';
+    computerPlay();
 }
 
 btnPaper.onclick = () => {
