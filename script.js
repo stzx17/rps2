@@ -45,24 +45,30 @@ let selection = '';
 
 function pressButton() {
     let playerPlayText = document.getElementById('playerSelection');
-    playerPlayText.textContent += selection;
+    playerPlayText.textContent += selectionText;
     computerPlay();
     playRound();
 }
 
 btnRock.onclick = () => {
     selection = 'R';
+    let selectionText = 'ROCK';
     pressButton();
+    return selectionText;
 }
 
 btnPaper.onclick = () => {
     selection = 'P';
+    let selectionText = 'PAPER';
     pressButton();
+    return selectionText;
 }
 
 btnScissor.onclick = () => {
     selection = 'S';
+    let selectionText = 'SCISSOR'
     pressButton();
+    return selectionText;
 }
 
 function playRound() {
