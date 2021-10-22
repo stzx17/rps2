@@ -42,19 +42,19 @@ let selection = '';
 btnRock.onclick = () => {
     selection = 'R';
     let playerPlayText = document.querySelector('#playerSelection');
-    playerPlayText.addText(selection);
+    playerPlayText.textContent(selection);
 }
 
 btnPaper.onclick = () => {
     selection = 'P';
     let playerPlayText = document.querySelector('#playerSelection');
-    playerPlayText.addText(selection);
+    playerPlayText.textContent(selection);
 }
 
 btnScissor.onclick = () => {
     selection = 'S';
     let playerPlayText = document.querySelector('#playerSelection');
-    playerPlayText.addText(selection);
+    playerPlayText.textContent(selection);
 }
 
 function playRound() {
