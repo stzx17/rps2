@@ -1,74 +1,106 @@
-//questa funzione usa numero a caso con Math.random tra 0 e 1 che moltiplicato per 3 sarà compreso 0 e 3
-//con Math.floor si prende solo la parte intera e a seconda del numero viene fatta una scelta R, P, S
-
 function computerPlay() {
    let cpuChoice = Math.floor(Math.random()*3);
    let cpuPlay = '';
+   let textDisplay = ''
 
    if (cpuChoice < 1) {
         cpuPlay = 'R';
+        textDisplay = '<img id="hand" src="https://www.iconbolt.com/iconsets/line-awesome/hand-rock-o.svg">';
    } else if (cpuChoice >= 1 && cpuChoice < 2) {
         cpuPlay = 'P';
+        textDisplay = '<img id="hand" src="https://www.iconbolt.com/iconsets/line-awesome/hand-paper-o.svg">';
    } else if (cpuChoice >= 2) {
         cpuPlay = 'S';
+        textDisplay = '<img id="hand" src="https://www.iconbolt.com/iconsets/line-awesome/hand-scissors-o.svg">';
    }
+   let cpuPlayText = document.getElementById('cpuSelection');
+   cpuPlayText.innerHTML = '';
+   cpuPlayText.innerHTML = textDisplay;
 
    return cpuPlay;
 }
 
-//qui viene chiesto al giocatore di inserire la stringa della sua scelta
-function playerSelection() {
-    let choice = prompt('What will you play? \nROCK, PAPER or SCISSOR?');
-    let selection = '';
-    if (choice.toUpperCase() == 'ROCK') {
-        selection = 'R';
-    } else if (choice.toUpperCase() == 'PAPER') {
-        selection = 'P';
-    } else if (choice.toUpperCase() == 'SCISSOR') {
-        selection = 'S';
-    } else {
-        alert('error!');
-    }
-    return selection;
+let btnRock = document.getElementById('rock');
+let btnPaper = document.getElementById('paper');
+let btnScissor = document.getElementById('scissor');
+let selection = '';
+let selectionText = '';
+
+function pressButton() {
+    let playerPlayText = document.getElementById('playerSelection');
+    playerPlayText.innerHTML = '';
+    playerPlayText.innerHTML = selectionText;
+    playRound();
 }
+
+btnRock.onclick = () => {
+    selection = 'R';
+    selectionText = '<img id="hand" src="https://www.iconbolt.com/iconsets/line-awesome/hand-rock-o.svg">';
+    pressButton();
+}
+
+btnPaper.onclick = () => {
+    selection = 'P';
+    selectionText = '<img id="hand" src="https://www.iconbolt.com/iconsets/line-awesome/hand-paper-o.svg">';
+    pressButton();
+}
+
+btnScissor.onclick = () => {
+    selection = 'S';
+    selectionText = '<img id="hand" src="https://www.iconbolt.com/iconsets/line-awesome/hand-scissors-o.svg">';
+    pressButton();
+}
+
+let roundPlayed = 0;
+let wins = 0;
+let lose = 0;
 
 function playRound() {
     let enemyChoice = computerPlay();
     let result = '';
-    let playerChoice = playerSelection();
-    if (enemyChoice == playerChoice) {
+    let resultText = '';
+    if (enemyChoice == selection) {
         result = 'T';
-    } else if (enemyChoice == 'S' && playerChoice == 'R') {
+    } else if (enemyChoice == 'S' && selection == 'R') {
         result = 'W';
-    } else if (enemyChoice == 'S' && playerChoice == 'P') {
+    } else if (enemyChoice == 'S' && selection == 'P') {
         result = 'L';
-    } else if (enemyChoice == 'R' && playerChoice == 'S') {
+    } else if (enemyChoice == 'R' && selection == 'S') {
         result = 'L';
-    } else if (enemyChoice == 'R' && playerChoice == 'P') {
+    } else if (enemyChoice == 'R' && selection == 'P') {
         result = 'W';
-    } else if (enemyChoice == 'P' && playerChoice == 'S') {
+    } else if (enemyChoice == 'P' && selection == 'S') {
         result = 'W';
-    } else if (enemyChoice == 'P' && playerChoice == 'R') {
+    } else if (enemyChoice == 'P' && selection == 'R') {
         result = 'L';
     }
-    return result;
-}
 
-function game() {
-    let wins = 0;
-    let loses = 0;
-    for (i = 0; i<5; i++) {
-        let result = playRound();
-        if (result == 'W') {
-            wins += 1;
-            console.log('player wins')
-        } else if (result == 'L') {
-            loses += 1;
-            console.log('computer wins')
-        } else if (result == 'T') {
-            console.log('tie')
-        }
+    if (result == 'T') {
+        resultText = 'TIE'
+        roundPlayed += 1;
+    } else if (result == 'L') {
+        resultText = 'LOSE';
+        roundPlayed += 1;
+        lose += 1;
+    } else if (result == 'W') {
+        resultText = 'WIN';
+        roundPlayed += 1;
+        wins += 1;
+    }
+    
+    let resultTextArea = document.getElementById('result');
+    resultTextArea.textContent = 'YOU ';
+    resultTextArea.textContent += resultText;
+    let scoreArea = document.getElementById('score');
+    scoreArea.textContent = 'SCORE: ' + wins;
+    
+
+    if (wins==5) {
+        let playArea = document.getElementById('playArea');
+        playArea.innerHTML = "<h1 class='result' id='score'>SCORE: 5</h1><br><h1 class='result'>YOU ARE THE CHAMPION!</h1>";
+        let buttonSelectionArea = document.getElementById('buttonSelectionArea');
+        buttonSelectionArea.innerHTML = '<h1 class="title"> You have won the game, <br>please press the button to play again </h1> <br> <button onclick= "location.reload()">play</button>';
+    } else {
+
     }
 }
-
-game();

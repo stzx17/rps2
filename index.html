@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href='styles.css' />
     <title>
         ROCK PAPER SCISSOR
     </title>
     <body>
-        
+        <div id='playField'>
+            <h1 class='title'>Rock Paper Scissor</h1>
+            <div class='section' id='playArea' min-height=400px>
+                <div class='selection' id='cpuSelection' height=400px></div>
+                <h1 class='title'> vs </h1>
+                <div class='selection' id='playerSelection' height=400px></div>
+                <h1 class = 'result' id='result'>make your move</h1>
+                <h1 class='result' id='score'></h1>
+            </div>
+            <div class='section' id='buttonSelectionArea'>
+                <button id='rock'><img src='https://www.iconbolt.com/iconsets/line-awesome/hand-rock-o.svg' /></button>
+                <button id='paper'><img src="https://www.iconbolt.com/iconsets/line-awesome/hand-paper-o.svg" /></button>
+                <button id='scissor'><img src="https://www.iconbolt.com/iconsets/line-awesome/hand-scissors-o.svg" /></button>
+            </div>
+        </div>
     </body>
 </head>
