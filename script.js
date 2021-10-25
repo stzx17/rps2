@@ -99,7 +99,7 @@ function playRound() {
         let playArea = document.getElementById('playArea');
         playArea.innerHTML = "<h1 class='result' id='score'>SCORE: 5</h1><br><h1 class='result'>YOU ARE THE CHAMPION!</h1>";
         let buttonSelectionArea = document.getElementById('buttonSelectionArea');
-        buttonSelectionArea.innerHTML = '<h1 class="title"> You have won the game, please press the button to play again </h1> <br> <button onclick= "location.reload()"></button>';
+        buttonSelectionArea.innerHTML = '<h1 class="title"> You have won the game, <br>please press the button to play again </h1> <br> <button onclick= "location.reload()">play</button>';
     } else {
 
     }
